@@ -1,0 +1,83 @@
+Multi Threading :
+
+-> Multithreading in Java is a process of executing multiple threads simultaneously.
+
+-> A thread is a lightweight sub-process, the smallest unit of processing. Multiprocessing and multithreading,
+   both are used to achieve multitasking.
+
+-> However, we use multithreading than multiprocessing because threads use a shared memory area.
+   They don't allocate separate memory area so saves memory, and context-switching between the threads takes less time than process.
+
+-> Process : Sequence of Execution of program
+             Abstraction of Hardware & Kernel
+
+-> Kernel : a kernel is a fundamental component of most operating systems. It acts as a bridge between software applications and the
+            computer hardware, managing resources and providing essential services for the execution of programs.
+
+-> Process Queue : It is a data structure which is used to run the process in which scheduling algorithm
+
+-> Context Switching : Context switching is the process of asking the brain to focus on two different things at the same time.
+                       For example, watching football while trying to bake a cake.
+                       In operating systems, context switching is the switching between user mode and kernel mode.
+                       The operating system switches the processor from user mode to kernel mode to execute the system call,
+                       and then switches back to user mode once the operation is complete.
+
+-> Thread : Sub Task of a process that share same address space to that process
+
+-> In Java we can achieve Multithreading in 3 ways :
+
+   * Thread Class ->
+
+                    public class Test {
+                        public static void main(String[] args) {         |-> retrieve the name of the thread
+                            System.out.println(Thread.currentThread().getName());
+                                                  |           |
+                                                 class   it is a static method
+                        }
+                    }
+When we run the program the output is "main"
+
+
+   * Runnable Interface -> The Runnable Interface in Java is used to define the task that can be run as a thread
+                           It has only one method void run() that can be called when thread is started.
+                           Runnable Interface is a Functional Interface which implemented by a Lambda Expression
+
+                           -> Functional Interface : Function Interface is a interface that contains only one abstract
+                                                     method his means that a functional interface can be used to represent
+                                                     a function that takes one input and produces one output.
+
+                                                     Functional interfaces are useful because they allow lambda expressions
+                                                     to be used in Java. Lambda expressions are a concise way to write functions,
+                                                     and they can be used to make code more readable and maintainable.
+
+                           Example : class MyRunnable implements Runnable{
+                                        @override
+                                        public void run(){
+                                            for(int i = 0; i < 10; i++){
+                                                System.out.println(Thread.currentThread().getName() + " " + i);
+                                            }
+                                        }
+                                        public static void main(String[] args){
+                                            Runnable runnable = new MyRunnable(); //Follow LSB principle
+                                            Thread t1 = new Thread(runnable);
+                                            Thread t2 = new Thread(runnable);
+                                            t1.start();
+                                            t2.start();
+                                        }
+                                     }
+
+                           -> Lambda Expression : Lambda Expressions were added in Java 8.
+
+                                                  A lambda expression is a short block of code which takes in parameters and returns a value.
+                                                  Lambda expressions are similar to methods, but they do not need a name and they can be implemented
+                                                  right in the body of a method
+
+                           Example : class MyThread{
+                                        public static void main(String[] args){
+                                            Thread t1 = new Thread(() ->{
+                                                for(int i = 0; i < 100; i++){
+                                                    System.out.println(Thread.currentThread().getName() + i);
+                                                }
+                                            });
+                                        }
+                                     }
