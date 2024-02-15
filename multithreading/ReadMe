@@ -81,3 +81,19 @@ When we run the program the output is "main"
                                             });
                                         }
                                      }
+
+-> Question : Which is more favourable Runnable Interface or Thread Class?
+   Answer   : In Java, the Runnable interface is generally preferred over the Thread class for creating threads.
+              This is because the Runnable interface allows for more flexibility and better object-oriented design.
+              Here are some of the key differences between the Runnable interface and the Thread class:
+              Inheritance:
+              The Runnable interface is an interface, while the Thread class is a concrete class. This means that a class can
+              implement the Runnable interface, but it cannot extend the Thread class. This is because Java only allows single
+              inheritance.
+
+-> Volatile Keyword : In Java, the volatile keyword is used to indicate that a variable's value may be changed by multiple threads
+                      simultaneously. When a variable is declared as volatile,it ensures that any thread that reads the variable will
+                      see the most recently written value by any other thread.
+                      Volatile keyword is used to modify the value of a variable by different threads. It is also used to make classes
+                      thread safe. It means that multiple threads can use a method and instance of the classes at the same time without
+                      any problem.
