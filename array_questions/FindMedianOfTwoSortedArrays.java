@@ -48,3 +48,31 @@ public class FindMedianOfTwoSortedArrays {
         System.out.println(ans);
     }
 }
+
+
+
+//    If m + n % 2 != 0, it means the total number of elements in the merged array is odd. In this case, the code calculates the middle element index using (m + n) / 2, and then retrieves the element at that index from the merge array.
+//
+//        Let's say m + n equals 3, and the indices of the merge array are 0, 1, and 2. So, (m + n) / 2 will be (3) / 2 = 1.5. However, since array indices are integers, the fractional part is truncated, resulting in index 1.
+//
+//        Therefore, the code returns the element at index 1 of the merge array, which corresponds to the middle element in the merged array. In your case, the element at index 1 of the merge array has a value of 2.0.
+//
+//        Hence, the answer is 2.0.
+
+  //for debugging
+
+//  if (m + n % 2 != 0) {
+//          // Odd case
+//          System.out.println("Odd case:");
+//          System.out.println("m + n / 2 = " + (m + n) / 2);
+//          return merge[(m + n) / 2];
+//          } else {
+//          // Even case
+//          System.out.println("Even case:");
+//          int x = m + n / 2;
+//          System.out.println("x = " + x);
+//          double p = merge[x];
+//          double q = merge[x - 1];
+//          System.out.println("merge[x] = " + p);
+//          System.out.println("merge[x-1] = " + q);
+//          return p + q / 2;
