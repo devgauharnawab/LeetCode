@@ -1,15 +1,19 @@
 package array_questions;
 
+import java.util.Arrays;
+
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
-        int index = 0;
+      int k = nums.length;
+        Arrays.sort(nums,0,k);
+        int occurence = 0;
         for (int i = 0; i < nums.length; i++){
             if (nums[i] != val){
-                nums[index] = nums[i];
-                index++;
+                nums[occurence] = nums[i];
+                occurence++;
             }
         }
-        return index;
+        return occurence;
     }
 
     public static void main(String[] args) {
@@ -20,3 +24,20 @@ public class RemoveElement {
         System.out.println(ans);
     }
 }
+
+
+
+
+
+
+
+
+
+ /*   int index = 0;
+        for (int i = 0; i < nums.length; i++){
+        if (nums[i] != val){
+        nums[index] = nums[i];
+        index++;
+        }
+        }
+        return index;*/
