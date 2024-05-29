@@ -47,6 +47,30 @@ public class LinkedListImplementation {
             current.next = newNode;
         }
     }
+    //insert node at given position
+    public void insertNodeAtGivenPosition(int data, int position){
+        //create a new Node
+        Node newNode = new Node(8);
+        //check if inserting at head, handle insertion at the beginning
+        if(position == 0){
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        //traverse to the position just before where the new node will be inserted
+        for(int i = 0; current != null && i < position - 1; i++){
+            current = current.next;
+        }
+        //if the position is more than the number of nodes, insertion is invalid
+        if(current == null){
+            System.out.println("position is out of bounds");
+            return;
+        }
+        //insert new node
+        newNode.next = current.next;
+        current.next = newNode;
+    }
     public static void main(String[] args){
         LinkedListImplementation ll = new LinkedListImplementation();
         ll.insertElementAtBeginning(5);
@@ -56,8 +80,12 @@ public class LinkedListImplementation {
         ll.insertElementAtBeginning(1);
         ll.display();
 
-        System.out.println("Insert new Element at the End");
-        ll.insertAtEnd(6);
+//        System.out.println("Insert new Element at the End");
+//        ll.insertAtEnd(6);
+//        ll.display();
+
+        System.out.println("Insert a node at the given position");
+        ll.insertNodeAtGivenPosition(8,2);
         ll.display();
     }
 }
