@@ -71,6 +71,31 @@ public class LinkedListImplementation {
         newNode.next = current.next;
         current.next = newNode;
     }
+    //delete node at the given position of the linked list
+    public void deleteNodeAtTheGivenPosition(int data, int position){
+        //check if list is empty
+        if(head == null){
+            System.out.println("List is Empty");
+            return;
+        }
+        //if deleting the head node
+        if(position == 0){
+            head = head.next;
+            return;
+        }
+        Node current = head;
+        //traverse the position just before where the node will be deleted
+        for(int i = 0;current != null && i < position - 1; i++){
+            current = current.next;
+        }
+        //if the position is more than the number of nodes, deletion is invalid
+        if(current == null || current.next == null){
+            System.out.println("Position is out of bounds");
+            return;
+        }
+        //delete the node
+        current.next = current.next.next;
+    }
     public static void main(String[] args){
         LinkedListImplementation ll = new LinkedListImplementation();
         ll.insertElementAtBeginning(5);
@@ -84,8 +109,12 @@ public class LinkedListImplementation {
 //        ll.insertAtEnd(6);
 //        ll.display();
 
-        System.out.println("Insert a node at the given position");
-        ll.insertNodeAtGivenPosition(8,2);
+//        System.out.println("Insert a node at the given position");
+//        ll.insertNodeAtGivenPosition(8,2);
+//        ll.display();
+
+        System.out.println("Delete the node at the given position");
+        ll.deleteNodeAtTheGivenPosition(2,1);
         ll.display();
     }
 }
